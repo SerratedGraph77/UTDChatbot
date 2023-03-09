@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -20,13 +21,31 @@ public class Bot extends JFrame {
         //For Bot Text Box
         frame.add(ChatArea);
         frame.add(ChatBox);
+        frame.setBackground(Color.WHITE);
 
-        ChatArea.setSize(500, 400);
+        ChatArea.setSize(460, 400); //600 by 400
         ChatArea.setLocation(2, 2);
 
         //For User Text Box
         ChatBox.setSize(540, 30);
         ChatBox.setLocation(2, 500);
+
+        //For UTD logo
+
+
+        Container c = frame.getContentPane();
+
+        JLabel label = new JLabel();
+        ImageIcon icon = new ImageIcon("src/UTD.png");
+        label.setIcon(icon);
+        Dimension size = label.getPreferredSize();
+        label.setBounds(460, 2, size.width, size.height);
+
+        c.add(label);
+
+        frame.setIconImage(icon.getImage());
+        frame.setVisible(true);
+
 
         ChatBox.addActionListener(new ActionListener() {
             @Override
